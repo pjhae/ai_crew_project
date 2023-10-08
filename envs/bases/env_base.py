@@ -8,6 +8,7 @@ import pygame
 from envs.bases.bresenham import bresenham
 import math
 import os
+import time
 
 from pygame import gfxdraw
 
@@ -394,3 +395,4 @@ class tmps_env_base(gym.Env):
         self.screen.blit(image, (0, 0))
         self.screen.blit(self.text_surface, (330, 200))
         pygame.display.update()
+        time.sleep(3)

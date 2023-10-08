@@ -39,10 +39,10 @@ class env_level0(tmps_env_base):
         return tmps_env_base.step(self, actions)
 
 
-        # for agent in self.agents:
-        #     agent.action = actions[num]
-        #     num += 1
-        #     print(agent.action)
+        for agent in self.agents:
+            agent.action = actions[num]
+            num += 1
+            print(agent.action)
 
 
 
