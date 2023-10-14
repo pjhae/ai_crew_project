@@ -1,7 +1,7 @@
 import gym
 import numpy as np
 from enum import IntEnum
-# from envs.bases.geo_base import geo_data_type
+from envs.bases.geo_base import geo_data_type
 from envs.bases.DynK1A1acc import DynK1A1acc
 
 

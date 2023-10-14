@@ -8,7 +8,7 @@ import pygame
 from envs.bases.bresenham import bresenham
 import math
 import os
-import time
+import time 
 
 from pygame import gfxdraw
 
