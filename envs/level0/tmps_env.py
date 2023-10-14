@@ -32,8 +32,9 @@ class env_level0(tmps_env_base):
 
     def reset(self, **kwargs):
         print(kwargs)
-        tmps_env_base.reset(self, **kwargs)
-
+        obs = tmps_env_base.reset(self, **kwargs)
+        return obs
+        
     def step(self, actions):
         # print(actions)
         return tmps_env_base.step(self, actions)

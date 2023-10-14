@@ -123,6 +123,7 @@ class tmps_env_base(gym.Env):
         self.text_surface = self.my_font.render(self.text_out, False, (255, 255, 255))
 
         obs = self.gen_obs()
+        obs = self.get_obs()  # jonghae added for RL reset
         # print(obs)
         return obs
 
@@ -169,6 +170,11 @@ class tmps_env_base(gym.Env):
     def gen_obs(self):
         return [self.gen_agent_obs(agent) for agent in self.agents]
 
+    # jonghae added for RL reset
+    def get_obs(self):
+        obs = [agent.observation for agent in self.agents]
+        return obs
+    
     def __str__(self):
         return "tmps_env_base"
         # return self.grid.__str__()

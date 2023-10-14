@@ -27,7 +27,7 @@ if __name__ == '__main__':
         done = False
         steps = 0
         reset_arg['episode'] = i
-        env.reset(**reset_arg)
+        obs = env.reset(**reset_arg)
 
         while not done and steps < 10000:
             steps += 1
@@ -40,6 +40,11 @@ if __name__ == '__main__':
             _obs = env.observation_space.sample()
             # print('observation_space_sample ', _obs)
             agent_obs, agent_rew, agent_done, agent_info = env.step(_act)
+            print('action:',_act)
+            print('obs:',len(agent_obs),len(agent_obs[0]))
+            print('reward:',agent_rew)
+            print('done:', agent_done)
+
             # print(agent_rew, agent_done, agent_info)
             agents = agent_info['agents']
             # if agents[1].num_detected_enemy() > 0:
