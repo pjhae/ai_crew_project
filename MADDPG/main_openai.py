@@ -162,9 +162,9 @@ def train(arglist):
     print('=============================')
 
     """step2: create agents"""
-    obs_shape_n = [env.observation_space[i].shape[0] for i in range(env.n)]
-    action_shape_n = [env.action_space[i].n for i in range(env.n)] # no need for stop bit
-    num_adversaries = min(env.n, arglist.num_adversaries) # no need for current trainer
+    obs_shape_n = [4,4,4,4]  # e.g [8, 10, 10]
+    action_shape_n = [2,2,2,2] # no need for stop bit # e.g [5, 5, 5]
+    num_adversaries = None # no need for current trainer
     actors_cur, critics_cur, actors_tar, critics_tar, optimizers_a, optimizers_c = \
         get_trainers(env, num_adversaries, obs_shape_n, action_shape_n, arglist)
     #memory = Memory(num_adversaries, arglist)
@@ -194,11 +194,18 @@ def train(arglist):
         action_size.append(range_a)
         head_o = end_o
         head_a = end_a
+        
+    # obs_size [(0, 4), (4, 8), (8, 12), (12, 16)]
+    # action_size [(0, 2), (2, 4), (4, 6), (6, 8)]
 
     print('=3 starting iterations ...')
     print('=============================')
-    obs_n = env.reset()
 
+    reset_arg = {
+        'episode': 0
+    }
+    obs_n = env.reset(**reset_arg)
+    obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
         if game_step > 1 and game_step % 100 == 0:   
@@ -211,16 +218,26 @@ def train(arglist):
             # get action
             action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() \
                 for agent, obs in zip(actors_cur, obs_n)]
+            
+            # pjhae
+            _action_n = [] 
+            for i, action in enumerate(action_n):
+                _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
+            _action_n = tuple(_action_n)
 
+        
             # interact with env
-            new_obs_n, rew_n, done_n, info_n = env.step(action_n)
-            print('action:',action_n)
-            print('obs:',obs_n)
+            new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
+
+            # pjhae
+            rew_n = [row[0] for row in rew_n]
+            new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
+            
             # save the experience
             memory.add(obs_n, np.concatenate(action_n), rew_n , new_obs_n, done_n)
             episode_rewards[-1] += np.sum(rew_n)
             for i, rew in enumerate(rew_n): agent_rewards[i][-1] += rew
-
+            
             # train our agents 
             update_cnt, actors_cur, actors_tar, critics_cur, critics_tar = agents_train(\
                 arglist, game_step, update_cnt, memory, obs_size, action_size, \
@@ -229,16 +246,23 @@ def train(arglist):
             # update the obs_n
             game_step += 1
             obs_n = new_obs_n
-            done = all(done_n)
+            # done = all(done_n)
+            done = done_n
             terminal = (episode_cnt >= arglist.per_episode_max_len-1)
             if done or terminal:
                 episode_step = 0
-                obs_n = env.reset()
+                obs_n =  env.reset(**reset_arg)
+                obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
                 agent_info.append([[]])
                 episode_rewards.append(0)
                 for a_r in agent_rewards:   
                     a_r.append(0)
                 continue
+
+        
+        if episode_cnt % 20 == 0 :
+            pass
+
 
 if __name__ == '__main__':
     arglist = parse_args()

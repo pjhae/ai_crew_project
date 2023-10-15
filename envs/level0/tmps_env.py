@@ -27,6 +27,9 @@ class env_level0(tmps_env_base):
         enemies = envs.bases.scenario_base.make_enemies()
         configs['enemies'] = enemies
 
+        # number of enemies
+        self.n = 4
+
         super().__init__(configs)
         print(configs)
 

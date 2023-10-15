@@ -33,18 +33,21 @@ if __name__ == '__main__':
             steps += 1
             # print(steps)
             env.render()  # OPTIONAL: render the whole scene + birds eye view
-
+            # print(env.n)
             _act = env.action_space.sample()
             # print('action_space_sample ', _act)
 
             _obs = env.observation_space.sample()
             # print('observation_space_sample ', _obs)
             agent_obs, agent_rew, agent_done, agent_info = env.step(_act)
-            print('action:',_act)
-            print('obs:',len(agent_obs),len(agent_obs[0]))
-            print('reward:',agent_rew)
+            # print('action:',_act)
+            # print('obs:',len(agent_obs),len(agent_obs[0]))
+            # print('reward:',agent_rew[0][:])
+            # print('reward:',agent_rew)
             print('done:', agent_done)
 
+            # print(agent_info['objects_pos'])
+   
             # print(agent_rew, agent_done, agent_info)
             agents = agent_info['agents']
             # if agents[1].num_detected_enemy() > 0:
