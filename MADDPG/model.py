@@ -4,6 +4,8 @@
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import gym
+
 
 class abstract_agent(nn.Module):
     def __init__(self):
@@ -108,6 +110,12 @@ class openai_actor(abstract_agent):
         self.linear_a2 = nn.Linear(args.num_units_openai, args.num_units_openai)
         self.linear_a = nn.Linear(args.num_units_openai, action_size)
 
+        # Action space
+        self.action_space = [gym.spaces.Box(low=-5.0, high=10.0, shape=(1,), dtype=float),
+                             gym.spaces.Box(low=-15.0, high=15.0, shape=(1,), dtype=float)]
+        self.amplitude = torch.tensor([(self.action_space[0].high - self.action_space[0].low) / 2.0, (self.action_space[1].high - self.action_space[1].low) / 2.0], device=args.device ,dtype=torch.float32)
+        self.mean = torch.tensor([(self.action_space[0].high + self.action_space[0].low) / 2.0, (self.action_space[1].high + self.action_space[1].low) / 2.0], device=args.device, dtype=torch.float32)
+
         self.reset_parameters()
         self.train()
     
@@ -126,7 +134,18 @@ class openai_actor(abstract_agent):
         x = self.LReLU(self.linear_a1(input))
         x = self.LReLU(self.linear_a2(x))
         model_out = self.linear_a(x)
-        u = torch.rand_like(model_out)
-        policy = F.softmax(model_out - torch.log(-torch.log(u)), dim=-1)
-        if model_original_out == True:   return model_out, policy # for model_out criterion
+        
+        if model_out.dim() == 1:
+            # 배치 크기가 1인 경우
+            action1 = (torch.tanh(model_out[0]) * self.amplitude[0]) + self.mean[0]
+            action2 = (torch.tanh(model_out[1]) * self.amplitude[1]) + self.mean[1]
+            policy = torch.cat((action1.unsqueeze(1), action2.unsqueeze(1)), dim=1).squeeze()
+        else:
+            # 다른 배치 크기인 경우
+            action1 = (torch.tanh(model_out[:, 0]) * self.amplitude[0]) + self.mean[0]
+            action2 = (torch.tanh(model_out[:, 1]) * self.amplitude[1]) + self.mean[1]
+            policy = torch.cat((action1.unsqueeze(1), action2.unsqueeze(1)), dim=1)
+        
+        if model_original_out == True:
+            return model_out, policy  # model_out criterion을 위한 반환
         return policy

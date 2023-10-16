@@ -8,8 +8,8 @@ import datetime
 env_config = {
     "num_agents": 4,
     "obs_box_size": 50,
-    "init_pos": ((55., 30.), (75., 30.), (95., 25.), (105., 30.))
-}
+    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.))
+    }
 
 if __name__ == '__main__':
     env = env_level0(env_config)
@@ -56,7 +56,7 @@ if __name__ == '__main__':
             # print('reward:',agent_rew)
             # print('done:', agent_done)
 
-            # print(agent_info['objects_pos'])
+            print(agent_info['objects_pos'])
    
             # print(agent_rew, agent_done, agent_info)
             agents = agent_info['agents']

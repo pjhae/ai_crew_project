@@ -119,7 +119,7 @@ def agents_train(arglist, game_step, update_cnt, memory, obs_size, action_size, 
             loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
 
             opt_a.zero_grad()
-            (1e-3*loss_pse+loss_a).backward()
+            (1e-2*loss_pse+loss_a).backward()  # 작을수록 좋다
             nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
             opt_a.step()
 
@@ -153,7 +153,7 @@ def train(arglist, video):
     env_config = {
     "num_agents": 4,
     "obs_box_size": 50,
-    "init_pos": ((55., 30.), (75., 30.), (95., 25.), (105., 30.))
+    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.))
     }
 
     env = env_level0(env_config)
@@ -223,14 +223,18 @@ def train(arglist, video):
                 _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
             _action_n = tuple(_action_n)
 
-        
             # interact with env
             new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
 
             # pjhae
-            rew_n = [row[0] for row in rew_n]
             new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
-            done_n = [False for _ in range(4)]
+            rew_n = -np.linalg.norm(new_obs_n[:, :2] - new_obs_n[:, 2:], axis=1)
+            rew_n[-rew_n < 2] = 100
+
+            if np.all(rew_n == 10):
+                print("goal in")
+
+            done_n = [done_n for _ in range(4)]
             if (episode_cnt >= arglist.per_episode_max_len-1):
                 done_n = [True for _ in range(4)]
 
@@ -262,7 +266,7 @@ def train(arglist, video):
 
         # 비디오 추가, reward 바꾸기, 초기위치 쉽게
         # evalution
-        if episode_gone % 10 == 0 :
+        if episode_gone % 20 == 0 :
             video.init(enabled=True)
 
             for _ in range(5):
@@ -278,26 +282,31 @@ def train(arglist, video):
                         _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
                     _action_n = tuple(_action_n)
 
-                    # new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
-                    new_obs_n, rew_n, done_n, info_n = env.step(env.action_space.sample())
+                    new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
 
                     video.record(env.render(mode='rgb_array'))
 
                     new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
+                    rew_n = -np.linalg.norm(new_obs_n[:, :2] - new_obs_n[:, 2:], axis=1)
+                    rew_n[-rew_n < 5] = 10
 
+                    if np.all(rew_n == 10):
+                        print("goal in")
+                        
                     obs_n = new_obs_n
                     done = done_n
                     terminal = (episode_cnt >= arglist.per_episode_max_len-1)
                     if done or terminal:
                         break
-
-
-            video.save('test_{}.mp4'.format(episode_gone))
-            video.init(enabled=False)             
+            
             print("evaluation is finished at", episode_gone, "th episode" )
             mean_agents_r = [round(np.mean(agent_rewards[idx][-200:-1]), 2) for idx in range(env.n)]
             mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
             print('episode reward:{} agents mean reward:{}'.format(mean_ep_r, mean_agents_r))
+
+            video.save('test_{}.mp4'.format(episode_gone))
+            video.init(enabled=False)             
+
 
 if __name__ == '__main__':
     arglist = parse_args()

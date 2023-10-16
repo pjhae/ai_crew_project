@@ -242,7 +242,7 @@ class tmps_env_base(gym.Env):
                 _rgb_value = self.geo_grid_data.get_grid_RGB_property(_x, _y)
                 # print(_rgb_value)
                 if _rgb_value[1] > 10 or _rgb_value[0] > 10:  # G has value
-                    agent.active = False
+                    agent.active = False  
 
                 # agent의 이동한 position으로 global_state 갱신
                 self.put_agent_to_global(agent)
@@ -277,7 +277,7 @@ class tmps_env_base(gym.Env):
                                 else:  # 나머지 agent는 보상 1
                                     agent_for_reward.append_detected_enemy(enemy, 1)
 
-                                print("Reward.. id:", agent_for_reward.agent_id, " active:", agent_for_reward.active, " reward:", agent_for_reward.reward)
+                                # print("Reward.. id:", agent_for_reward.agent_id, " active:", agent_for_reward.active, " reward:", agent_for_reward.reward)
 
                             # print("------------------Can See num", agent.num_detected_enemy(), agent.agent_id,\
                             #      agent.list_detected_enemy, distance)

@@ -11,7 +11,7 @@ import numpy as np
 ############## Video related #################
 
 class VideoRecorder(object):
-    def __init__(self, dir_name, height=300, width=600, fps=100):
+    def __init__(self, dir_name, height=300, width=600, fps=300):
         self.dir_name = dir_name
         try:
             if not os.path.exists(dir_name):
