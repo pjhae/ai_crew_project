@@ -34,7 +34,6 @@ class env_level0(tmps_env_base):
         print(configs)
 
     def reset(self, **kwargs):
-        print(kwargs)
         obs = tmps_env_base.reset(self, **kwargs)
         return obs
         

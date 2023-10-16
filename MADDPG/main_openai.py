@@ -3,7 +3,7 @@
 # Name: MADDPG_torch
 # File func: main func
 import os
-
+import datetime
 import time
 import torch
 import pickle
@@ -15,6 +15,7 @@ import torch.optim as optim
 from arguments import parse_args
 from replay_buffer import ReplayBuffer
 from model import openai_actor, openai_critic
+from utils import VideoRecorder
 
 from envs.level0.tmps_env import env_level0
 
@@ -143,7 +144,7 @@ def agents_train(arglist, game_step, update_cnt, memory, obs_size, action_size, 
 
     return update_cnt, actors_cur, actors_tar, critics_cur, critics_tar
 
-def train(arglist):
+def train(arglist, video):
     """
     init the env, agent and train the agents
     """
@@ -208,11 +209,8 @@ def train(arglist):
     obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
-        if game_step > 1 and game_step % 100 == 0:   
-            mean_agents_r = [round(np.mean(agent_rewards[idx][-200:-1]), 2) for idx in range(env.n)]
-            mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
-            print(" "*43 + 'episode reward:{} agents mean reward:{}'.format(mean_ep_r, mean_agents_r), end='\r')
-        print('=Training: steps:{} episode:{}'.format(game_step, episode_gone), end='\r')
+
+        print('steps:{} episode:{}'.format(game_step, episode_gone))
 
         for episode_cnt in range(arglist.per_episode_max_len):
             # get action
@@ -232,7 +230,10 @@ def train(arglist):
             # pjhae
             rew_n = [row[0] for row in rew_n]
             new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
-            
+            done_n = [False for _ in range(4)]
+            if (episode_cnt >= arglist.per_episode_max_len-1):
+                done_n = [True for _ in range(4)]
+
             # save the experience
             memory.add(obs_n, np.concatenate(action_n), rew_n , new_obs_n, done_n)
             episode_rewards[-1] += np.sum(rew_n)
@@ -259,11 +260,50 @@ def train(arglist):
                     a_r.append(0)
                 continue
 
-        
-        if episode_cnt % 20 == 0 :
-            pass
+        # 비디오 추가, reward 바꾸기, 초기위치 쉽게
+        # evalution
+        if episode_gone % 10 == 0 :
+            video.init(enabled=True)
 
+            for _ in range(5):
+                obs_n =  env.reset(**reset_arg)
+                obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
+                
+                for episode_cnt in range(arglist.per_episode_max_len):
+                    action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() \
+                        for agent, obs in zip(actors_cur, obs_n)]
+                    # pjhae
+                    _action_n = [] 
+                    for i, action in enumerate(action_n):
+                        _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
+                    _action_n = tuple(_action_n)
+
+                    # new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
+                    new_obs_n, rew_n, done_n, info_n = env.step(env.action_space.sample())
+
+                    video.record(env.render(mode='rgb_array'))
+
+                    new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
+
+                    obs_n = new_obs_n
+                    done = done_n
+                    terminal = (episode_cnt >= arglist.per_episode_max_len-1)
+                    if done or terminal:
+                        break
+
+
+            video.save('test_{}.mp4'.format(episode_gone))
+            video.init(enabled=False)             
+            print("evaluation is finished at", episode_gone, "th episode" )
+            mean_agents_r = [round(np.mean(agent_rewards[idx][-200:-1]), 2) for idx in range(env.n)]
+            mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
+            print('episode reward:{} agents mean reward:{}'.format(mean_ep_r, mean_agents_r))
 
 if __name__ == '__main__':
     arglist = parse_args()
-    train(arglist)
+
+        # For video
+    video_directory = '/home/jonghae/ai_crew_project/MADDPG/video/{}'.format(datetime.datetime.now().strftime("%H:%M:%S %p"))
+    video = VideoRecorder(dir_name = video_directory)
+
+    train(arglist, video)

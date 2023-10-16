@@ -356,9 +356,7 @@ class tmps_env_base(gym.Env):
         """
         Render the whole-grid human view
         """
-
-        self.screen = pygame.display.set_mode((self.width + 300, self.height))  # , pygame.RESIZABLE)  # 창만 커진다.
-
+        
 
         # self.render_data = np.array(self.geo_grid_data.get_render_image()) + np.zeros((300, 300, 3))
         self.render_data[0:300, 0:300] = np.array(self.geo_grid_data.get_render_image())
@@ -397,8 +395,26 @@ class tmps_env_base(gym.Env):
 
         self.test_num += 2
 
-        image = pygame.surfarray.make_surface(self.render_data)
-        self.screen.blit(image, (0, 0))
-        self.screen.blit(self.text_surface, (330, 200))
-        pygame.display.update()
-        time.sleep(3)
+
+        if mode == "human":
+            self.screen = pygame.display.set_mode((self.width + 300, self.height))  # , pygame.RESIZABLE)  # 창만 커진다.
+            image = pygame.surfarray.make_surface(self.render_data)
+            self.screen.blit(image, (0, 0))
+            self.screen.blit(self.text_surface, (330, 200))
+            pygame.display.update()
+            time.sleep(2)
+
+        if mode == "rgb_array":
+            image = pygame.surfarray.make_surface(self.render_data)
+            rgb_array = pygame.surfarray.array3d(image)
+
+            # 이미지를 시계방향으로 -90도 돌립니다.
+            rotated_image = np.rot90(rgb_array, k=3)
+
+            # 이미지를 좌우대칭 시킵니다.
+            flipped_image = np.fliplr(rotated_image)
+            return flipped_image # (600, 300, 3)
+
+
+
+
