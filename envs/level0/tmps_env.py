@@ -20,7 +20,8 @@ class env_level0(tmps_env_base):
         configs['geo_grid_data'] = geo_grid_data
 
         # make agent config
-        agents = envs.level0.make_agents(configs['num_agents'], configs['map_width'], configs['obs_box_size'], configs['init_pos'])
+        agents = envs.level0.make_agents(configs['num_agents'], configs['map_width'], configs['obs_box_size'],\
+                                         configs['init_pos'], configs['dynamic_delta_t'])
         configs['agents'] = agents
 
         # make enemy config
@@ -29,14 +30,13 @@ class env_level0(tmps_env_base):
 
         # number of enemies
         self.n = 4
-
         super().__init__(configs)
         print(configs)
 
     def reset(self, **kwargs):
+        print(kwargs)
         obs = tmps_env_base.reset(self, **kwargs)
         return obs
-        
     def step(self, actions):
         # print(actions)
         return tmps_env_base.step(self, actions)

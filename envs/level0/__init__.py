@@ -16,7 +16,8 @@ def make_agents(
         num_agents,  # max 4
         map_width,
         obs_box_size,
-        init_pos
+        init_pos,
+        dyn_delta_t
 ):
     agents = [AgentInterface(
         agent_id=[f'agent_{i}'],  # i,
@@ -32,7 +33,8 @@ def make_agents(
         blue_red_team=blue_red_team,
         obs_box_size=obs_box_size,
         map_width = map_width,
-        init_position=init_pos[i]
+        init_position=init_pos[i],
+        dyna_delta_t = dyn_delta_t
     ) for i in range(0, num_agents)]
 
     return agents

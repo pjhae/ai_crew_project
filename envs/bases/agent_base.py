@@ -51,7 +51,8 @@ class AgentInterface:
             blue_red_team=0,  # 0 blue 1red
             obs_box_size=50,
             map_width=500,
-            init_position=(0., 0.)
+            init_position=(0., 0.),
+            dyna_delta_t=0.1
     ):
         self.init_position = init_position
         self.init_num_ammunition = num_ammunition
@@ -70,6 +71,7 @@ class AgentInterface:
         self.rough_road_degrade_rate = rough_road_degrade_rate
         self.blue_red_team = blue_red_team
         self.position = init_position
+        self.dynamic_delta_t = dyna_delta_t
 
         # self.map_width = map_width
         # self.map_height = map_height
@@ -134,7 +136,7 @@ class AgentInterface:
         self.action = self.action_space.sample()
         self.observation = self.observation_space.sample()
         self.explore_memory = np.zeros((map_width, map_width), dtype=np.uint8)
-        self.class_dynamic = DynK1A1acc(1.0, 1, 1, self.init_position[0], self.init_position[1], self.current_orientation)
+        self.class_dynamic = DynK1A1acc(self.dynamic_delta_t, 1, 1, self.init_position[0], self.init_position[1], self.current_orientation)
 
         print(init_position)
 
@@ -161,7 +163,7 @@ class AgentInterface:
         self.observation['objects'].fill(0)
         self.observation['height'].fill(0)
         self.observation['explore'].fill(0)
-        self.class_dynamic = DynK1A1acc(0.01, 1, 1, self.init_position[0], self.init_position[1], self.current_orientation)
+        self.class_dynamic = DynK1A1acc(self.dynamic_delta_t, 1, 1, self.init_position[0], self.init_position[1], self.current_orientation)
         # 시작 지점을 이미 탐색한 것으로 설정.
         self.observation['explore'][int(self.position[0])][int(self.position[1])] = 1
 
