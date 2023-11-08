@@ -1,0 +1,148 @@
+{
+    "os": "Linux-6.2.0-36-generic-x86_64-with-glibc2.35",
+    "python": "3.9.18",
+    "heartbeatAt": "2023-11-08T01:51:08.498742",
+    "startedAt": "2023-11-08T01:51:07.752382",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/home/jonghae/ai_crew_project/MADDPG/main_openai.py",
+    "codePathLocal": "MADDPG/main_openai.py",
+    "codePath": "MADDPG/main_openai.py",
+    "git": {
+        "remote": "https://github.com/pjhae/ai_crew_project.git",
+        "commit": "3364f1443b090089ff235e7b66b747b6cbf63c9e"
+    },
+    "email": "bdfire1234@snu.ac.kr",
+    "root": "/home/jonghae/ai_crew_project",
+    "host": "jonghae-System-Product-Name",
+    "username": "jonghae",
+    "executable": "/home/jonghae/anaconda3/envs/aicrew/bin/python3",
+    "cpu_count": 12,
+    "cpu_count_logical": 20,
+    "cpu_freq": {
+        "current": 3843.77655,
+        "min": 800.0,
+        "max": 4580.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 4500.022,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4500.0,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4187.265,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4495.794,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 3932.803,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4335.52,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2324.516,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4254.7,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4391.699,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4500.0,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 3844.804,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 2484.454,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 4113.225,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4026.784,
+            "min": 800.0,
+            "max": 4900.0
+        },
+        {
+            "current": 4490.653,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 3257.627,
+            "min": 800.0,
+            "max": 4800.0
+        },
+        {
+            "current": 3041.155,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3399.827,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3399.345,
+            "min": 800.0,
+            "max": 3600.0
+        },
+        {
+            "current": 3395.338,
+            "min": 800.0,
+            "max": 3600.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 915.8027572631836,
+            "used": 397.9664993286133
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 3060",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total": 12884901888
+        }
+    ],
+    "memory": {
+        "total": 31.082504272460938
+    }
+}

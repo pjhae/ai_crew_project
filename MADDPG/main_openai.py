@@ -19,6 +19,21 @@ from utils import VideoRecorder
 
 from envs.level0.tmps_env import env_level0
 
+import wandb
+
+# For logging
+wandb.init(
+    # set the wandb project where this run will be logged
+    project="ai-crew",
+    # track hyperparameters and run metadata
+    config={
+    "obs_format": "relative_pos",
+    "architecture": "MLP",
+    "dataset": "accelerated_env",
+    "epochs": "None",
+    }
+)
+
 def make_env(scenario_name, arglist, benchmark=False):
     pass
 
@@ -153,7 +168,8 @@ def train(arglist, video):
     env_config = {
     "num_agents": 4,
     "obs_box_size": 50,
-    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.))
+    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.)),
+    "dynamic_delta_t": 0.01
     }
 
     env = env_level0(env_config)
@@ -163,7 +179,7 @@ def train(arglist, video):
     print('=============================')
 
     """step2: create agents"""
-    obs_shape_n = [4,4,4,4]  # e.g [8, 10, 10]
+    obs_shape_n = [2,2,2,2]  # e.g [8, 10, 10] , currently [4,4,4,4] -> [2,2,2,2] relative position
     action_shape_n = [2,2,2,2] # no need for stop bit # e.g [5, 5, 5]
     num_adversaries = None # no need for current trainer
     actors_cur, critics_cur, actors_tar, critics_tar, optimizers_a, optimizers_c = \
@@ -196,7 +212,7 @@ def train(arglist, video):
         head_o = end_o
         head_a = end_a
         
-    # obs_size [(0, 4), (4, 8), (8, 12), (12, 16)]
+    # obs_size [(0, 2), (2, 4), (4, 6), (6, 8)]
     # action_size [(0, 2), (2, 4), (4, 6), (6, 8)]
 
     print('=3 starting iterations ...')
@@ -206,7 +222,7 @@ def train(arglist, video):
         'episode': 0
     }
     obs_n = env.reset(**reset_arg)
-    obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
+    obs_n = np.array([[0, 0] for _ in range(4)])  # pjhae
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
 
@@ -227,9 +243,14 @@ def train(arglist, video):
             new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
 
             # pjhae
-            new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
-            rew_n = -np.linalg.norm(new_obs_n[:, :2] - new_obs_n[:, 2:], axis=1)
-            rew_n[-rew_n < 2] = 100
+            # new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1) # Global goal pos 4*4
+            agent_pos = info_n['objects_pos'][0:4, :]
+            goal_pos  = info_n['objects_pos'][4:8, :]
+
+            new_obs_n = goal_pos - agent_pos
+
+            rew_n = -np.linalg.norm(new_obs_n, axis=1)
+            rew_n[-rew_n < 2] = 10
 
             if np.all(rew_n == 10):
                 print("goal in")
@@ -257,7 +278,7 @@ def train(arglist, video):
             if done or terminal:
                 episode_step = 0
                 obs_n =  env.reset(**reset_arg)
-                obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
+                obs_n = np.array([[0,0] for _ in range(4)])  # pjhae
                 agent_info.append([[]])
                 episode_rewards.append(0)
                 for a_r in agent_rewards:   
@@ -271,7 +292,7 @@ def train(arglist, video):
 
             for _ in range(5):
                 obs_n =  env.reset(**reset_arg)
-                obs_n = np.array([[0,0,0,0] for _ in range(4)])  # pjhae
+                obs_n = np.array([[0,0] for _ in range(4)])  # pjhae
                 
                 for episode_cnt in range(arglist.per_episode_max_len):
                     action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() \
@@ -286,23 +307,28 @@ def train(arglist, video):
 
                     video.record(env.render(mode='rgb_array'))
 
-                    new_obs_n = np.concatenate((info_n['objects_pos'][0:4, :], info_n['objects_pos'][4:8, :]), axis=1)
-                    rew_n = -np.linalg.norm(new_obs_n[:, :2] - new_obs_n[:, 2:], axis=1)
-                    rew_n[-rew_n < 5] = 10
+                    agent_pos = info_n['objects_pos'][0:4, :]
+                    goal_pos  = info_n['objects_pos'][4:8, :]
 
-                    if np.all(rew_n == 10):
-                        print("goal in")
+                    new_obs_n = goal_pos - agent_pos
+
+                    rew_n = -np.linalg.norm(new_obs_n, axis=1)
+
                         
                     obs_n = new_obs_n
                     done = done_n
                     terminal = (episode_cnt >= arglist.per_episode_max_len-1)
                     if done or terminal:
                         break
+
             
+
             print("evaluation is finished at", episode_gone, "th episode" )
             mean_agents_r = [round(np.mean(agent_rewards[idx][-200:-1]), 2) for idx in range(env.n)]
             mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
             print('episode reward:{} agents mean reward:{}'.format(mean_ep_r, mean_agents_r))
+
+            wandb.log({"mean_agents_r": np.sum(mean_agents_r)})
 
             video.save('test_{}.mp4'.format(episode_gone))
             video.init(enabled=False)             

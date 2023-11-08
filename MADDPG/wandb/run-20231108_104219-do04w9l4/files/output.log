@@ -1,0 +1,137 @@
+tmps_env __init__
+(60.0, 110.0)
+(200.0, 140.0)
+(60.0, 240.0)
+(210.0, 220.0)
+add_agent
+add_agent
+add_agent
+add_agent
+render_data shape (600, 300, 3)
+render_data shape2 (600, 300, 3)
+{'num_agents': 4, 'obs_box_size': 50, 'init_pos': ((60.0, 110.0), (200.0, 140.0), (60.0, 240.0), (210.0, 220.0)), 'dynamic_delta_t': 0.01, 'map_width': 300, 'map_height': 300, 'geo_grid_data': <envs.bases.geo_base.GeoGridData object at 0x7f6fc6accb20>, 'agents': [<envs.bases.agent_base.AgentInterface object at 0x7f6fc6adf370>, <envs.bases.agent_base.AgentInterface object at 0x7f6fc6af10d0>, <envs.bases.agent_base.AgentInterface object at 0x7f6fc6adff10>, <envs.bases.agent_base.AgentInterface object at 0x7f6fc6ad4580>], 'enemies': [<envs.bases.scenario_base.EnemyInterface object at 0x7f6fc6adf460>, <envs.bases.scenario_base.EnemyInterface object at 0x7f6fc6adf700>, <envs.bases.scenario_base.EnemyInterface object at 0x7f6fc6adf520>, <envs.bases.scenario_base.EnemyInterface object at 0x7f6fc6b3bd30>]}
+=============================
+=1 Env simple_adversary is right ...
+=============================
+=2 The 4 agents are inited ...
+=============================
+=3 starting iterations ...
+=============================
+steps:0 episode:0
+/home/jonghae/ai_crew_project/MADDPG/model.py:116: UserWarning: Creating a tensor from a list of numpy.ndarrays is extremely slow. Please consider converting the list to a single numpy.ndarray with numpy.array() before converting to a tensor. (Triggered internally at /opt/conda/conda-bld/pytorch_1695392022560/work/torch/csrc/utils/tensor_new.cpp:261.)
+  self.amplitude = torch.tensor([(self.action_space[0].high - self.action_space[0].low) / 2.0, (self.action_space[1].high - self.action_space[1].low) / 2.0], device=args.device ,dtype=torch.float32)
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+evaluation is finished at 0 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+steps:1000 episode:1
+steps:2000 episode:2
+steps:3000 episode:3
+steps:4000 episode:4
+steps:5000 episode:5
+steps:6000 episode:6
+steps:7000 episode:7
+steps:8000 episode:8
+steps:9000 episode:9
+steps:10000 episode:10
+=start training ...
+steps:11000 episode:11
+steps:12000 episode:12
+steps:13000 episode:13
+steps:14000 episode:14
+steps:15000 episode:15
+steps:16000 episode:16
+steps:17000 episode:17
+steps:18000 episode:18
+steps:19000 episode:19
+steps:20000 episode:20
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+evaluation is finished at 20 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+steps:21000 episode:21
+steps:22000 episode:22
+steps:23000 episode:23
+steps:24000 episode:24
+steps:25000 episode:25
+steps:26000 episode:26
+steps:27000 episode:27
+steps:28000 episode:28
+steps:29000 episode:29
+steps:30000 episode:30
+steps:31000 episode:31
+steps:32000 episode:32
+steps:33000 episode:33
+steps:34000 episode:34
+steps:35000 episode:35
+steps:36000 episode:36
+steps:37000 episode:37
+steps:38000 episode:38
+steps:39000 episode:39
+steps:40000 episode:40
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+evaluation is finished at 40 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+steps:41000 episode:41
+steps:42000 episode:42
+steps:43000 episode:43
+steps:44000 episode:44
+steps:45000 episode:45
+steps:46000 episode:46
+steps:47000 episode:47
+steps:48000 episode:48
+steps:49000 episode:49
+steps:50000 episode:50
+steps:51000 episode:51
+steps:52000 episode:52
+steps:53000 episode:53
+steps:54000 episode:54
+steps:55000 episode:55
+steps:56000 episode:56
+steps:57000 episode:57
+steps:58000 episode:58
+steps:59000 episode:59
+steps:60000 episode:60
+evaluation is finished at 60 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+steps:61000 episode:61
+steps:62000 episode:62
+steps:63000 episode:63
+steps:64000 episode:64
+steps:65000 episode:65
+steps:66000 episode:66
+steps:67000 episode:67
+steps:68000 episode:68
+steps:69000 episode:69
+steps:70000 episode:70
+steps:71000 episode:71
+steps:72000 episode:72
+steps:73000 episode:73
+steps:74000 episode:74
+steps:75000 episode:75
+steps:76000 episode:76
+steps:77000 episode:77
+steps:78000 episode:78
+steps:79000 episode:79
+steps:80000 episode:80
+evaluation is finished at 80 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+steps:81000 episode:81
+steps:82000 episode:82
+steps:83000 episode:83
+steps:84000 episode:84
+steps:85000 episode:85
+steps:86000 episode:86
+steps:87000 episode:87
+steps:88000 episode:88
+steps:89000 episode:89
+steps:90000 episode:90
+=time:2311_081049 step:90000        save
+Traceback (most recent call last):
+  File "/home/jonghae/ai_crew_project/MADDPG/main_openai.py", line 344, in <module>
+    train(arglist, video)
+  File "/home/jonghae/ai_crew_project/MADDPG/main_openai.py", line 268, in train
+    update_cnt, actors_cur, actors_tar, critics_cur, critics_tar = agents_train(\
+  File "/home/jonghae/ai_crew_project/MADDPG/main_openai.py", line 148, in agents_train
+    os.mkdir(model_file_dir)
+FileNotFoundError: [Errno 2] No such file or directory: 'MADDPG/models/simple_adversary_2311_081049_90000'

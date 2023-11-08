@@ -1,0 +1,479 @@
+2023-11-08 10:42:19,878 INFO    StreamThr :1538942 [internal.py:wandb_internal():86] W&B internal server running at pid: 1538942, started at: 2023-11-08 10:42:19.878247
+2023-11-08 10:42:19,879 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status
+2023-11-08 10:42:19,880 INFO    WriterThread:1538942 [datastore.py:open_for_write():85] open: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/run-do04w9l4.wandb
+2023-11-08 10:42:19,880 DEBUG   SenderThread:1538942 [sender.py:send():380] send: header
+2023-11-08 10:42:19,892 DEBUG   SenderThread:1538942 [sender.py:send():380] send: run
+2023-11-08 10:42:20,337 INFO    SenderThread:1538942 [dir_watcher.py:__init__():211] watching files in: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files
+2023-11-08 10:42:20,337 INFO    SenderThread:1538942 [sender.py:_start_run_threads():1124] run started: do04w9l4 with start time 1699407739.878195
+2023-11-08 10:42:20,341 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: check_version
+2023-11-08 10:42:20,341 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: check_version
+2023-11-08 10:42:20,390 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: run_start
+2023-11-08 10:42:20,394 DEBUG   HandlerThread:1538942 [system_info.py:__init__():32] System info init
+2023-11-08 10:42:20,394 DEBUG   HandlerThread:1538942 [system_info.py:__init__():47] System info init done
+2023-11-08 10:42:20,394 INFO    HandlerThread:1538942 [system_monitor.py:start():194] Starting system monitor
+2023-11-08 10:42:20,394 INFO    SystemMonitor:1538942 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2023-11-08 10:42:20,394 INFO    HandlerThread:1538942 [system_monitor.py:probe():214] Collecting system info
+2023-11-08 10:42:20,395 INFO    SystemMonitor:1538942 [interfaces.py:start():190] Started cpu monitoring
+2023-11-08 10:42:20,395 INFO    SystemMonitor:1538942 [interfaces.py:start():190] Started disk monitoring
+2023-11-08 10:42:20,396 INFO    SystemMonitor:1538942 [interfaces.py:start():190] Started gpu monitoring
+2023-11-08 10:42:20,396 INFO    SystemMonitor:1538942 [interfaces.py:start():190] Started memory monitoring
+2023-11-08 10:42:20,396 INFO    SystemMonitor:1538942 [interfaces.py:start():190] Started network monitoring
+2023-11-08 10:42:20,405 DEBUG   HandlerThread:1538942 [system_info.py:probe():196] Probing system
+2023-11-08 10:42:20,410 DEBUG   HandlerThread:1538942 [system_info.py:_probe_git():181] Probing git
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_info.py:_probe_git():189] Probing git done
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_info.py:probe():244] Probing system done
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_monitor.py:probe():223] {'os': 'Linux-6.2.0-36-generic-x86_64-with-glibc2.35', 'python': '3.9.18', 'heartbeatAt': '2023-11-08T01:42:20.405810', 'startedAt': '2023-11-08T01:42:19.875806', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/home/jonghae/ai_crew_project/MADDPG/main_openai.py', 'codePathLocal': 'main_openai.py', 'codePath': 'MADDPG/main_openai.py', 'git': {'remote': 'https://github.com/pjhae/ai_crew_project.git', 'commit': '3364f1443b090089ff235e7b66b747b6cbf63c9e'}, 'email': 'bdfire1234@snu.ac.kr', 'root': '/home/jonghae/ai_crew_project', 'host': 'jonghae-System-Product-Name', 'username': 'jonghae', 'executable': '/home/jonghae/anaconda3/envs/aicrew/bin/python3', 'cpu_count': 12, 'cpu_count_logical': 20, 'cpu_freq': {'current': 2850.99885, 'min': 800.0, 'max': 4580.0}, 'cpu_freq_per_core': [{'current': 3650.712, 'min': 800.0, 'max': 4800.0}, {'current': 800.476, 'min': 800.0, 'max': 4800.0}, {'current': 3949.671, 'min': 800.0, 'max': 4800.0}, {'current': 2100.0, 'min': 800.0, 'max': 4800.0}, {'current': 4052.015, 'min': 800.0, 'max': 4800.0}, {'current': 2100.0, 'min': 800.0, 'max': 4800.0}, {'current': 3955.304, 'min': 800.0, 'max': 4800.0}, {'current': 800.521, 'min': 800.0, 'max': 4800.0}, {'current': 4149.163, 'min': 800.0, 'max': 4900.0}, {'current': 2100.0, 'min': 800.0, 'max': 4900.0}, {'current': 4442.273, 'min': 800.0, 'max': 4800.0}, {'current': 3252.745, 'min': 800.0, 'max': 4800.0}, {'current': 4573.861, 'min': 800.0, 'max': 4900.0}, {'current': 2100.0, 'min': 800.0, 'max': 4900.0}, {'current': 4493.236, 'min': 800.0, 'max': 4800.0}, {'current': 2100.0, 'min': 800.0, 'max': 4800.0}, {'current': 2100.0, 'min': 800.0, 'max': 3600.0}, {'current': 2100.0, 'min': 800.0, 'max': 3600.0}, {'current': 2100.0, 'min': 800.0, 'max': 3600.0}, {'current': 2100.0, 'min': 800.0, 'max': 3600.0}], 'disk': {'/': {'total': 915.8027572631836, 'used': 397.93942642211914}}, 'gpu': 'NVIDIA GeForce RTX 3060', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 3060', 'memory_total': 12884901888}], 'memory': {'total': 31.082504272460938}}
+2023-11-08 10:42:20,417 INFO    HandlerThread:1538942 [system_monitor.py:probe():224] Finished collecting system info
+2023-11-08 10:42:20,417 INFO    HandlerThread:1538942 [system_monitor.py:probe():227] Publishing system info
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_info.py:_save_pip():68] Saving pip packages done
+2023-11-08 10:42:20,417 DEBUG   HandlerThread:1538942 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2023-11-08 10:42:21,318 DEBUG   HandlerThread:1538942 [system_info.py:_save_conda():87] Saving conda packages done
+2023-11-08 10:42:21,318 INFO    HandlerThread:1538942 [system_monitor.py:probe():229] Finished publishing system info
+2023-11-08 10:42:21,320 DEBUG   SenderThread:1538942 [sender.py:send():380] send: files
+2023-11-08 10:42:21,320 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2023-11-08 10:42:21,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:42:21,323 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:42:21,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:42:21,337 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/requirements.txt
+2023-11-08 10:42:21,338 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-metadata.json
+2023-11-08 10:42:21,338 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/conda-environment.yaml
+2023-11-08 10:42:21,550 DEBUG   SenderThread:1538942 [sender.py:send():380] send: telemetry
+2023-11-08 10:42:22,019 INFO    wandb-upload_0:1538942 [upload_job.py:push():131] Uploaded file /tmp/tmpa5hhma8zwandb/vp5erlqr-wandb-metadata.json
+2023-11-08 10:42:22,337 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:42:24,337 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:42:25,436 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:30,437 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:35,437 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:36,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:42:36,323 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:42:36,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:42:40,515 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:45,516 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:49,161 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-08 10:42:49,162 DEBUG   SenderThread:1538942 [sender.py:send():380] send: history
+2023-11-08 10:42:49,163 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: summary_record
+2023-11-08 10:42:49,163 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:42:49,342 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_created():271] file/dir created: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:42:50,343 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:42:51,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:42:51,323 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:42:51,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:42:51,533 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:52,343 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:42:52,343 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/config.yaml
+2023-11-08 10:42:56,344 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:42:57,270 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:42:58,345 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:00,346 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:02,568 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:04,347 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:06,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:43:06,323 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:43:06,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:43:06,348 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:07,997 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:08,348 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:12,349 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:13,204 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:14,350 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:16,351 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:18,871 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:20,352 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:20,396 DEBUG   SystemMonitor:1538942 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2023-11-08 10:43:20,397 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:43:21,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:43:21,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:43:21,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:43:22,352 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:24,717 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:26,353 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:28,354 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:29,849 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:32,355 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:35,170 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:36,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:43:36,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:43:36,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:43:36,356 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:38,357 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:40,514 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:42,358 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:44,359 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:46,409 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:48,360 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:50,361 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:43:50,397 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:43:51,323 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:43:51,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:43:51,327 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:43:51,592 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:43:56,593 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:01,593 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:06,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:44:06,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:44:06,365 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:44:07,530 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:12,531 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:15,397 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-08 10:44:15,398 DEBUG   SenderThread:1538942 [sender.py:send():380] send: history
+2023-11-08 10:44:15,398 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: summary_record
+2023-11-08 10:44:15,399 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:44:16,368 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:44:17,368 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:18,369 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:18,399 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:20,398 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:44:21,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:44:21,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:44:21,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:44:22,370 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:24,173 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:24,370 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:26,371 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:29,893 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:30,372 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:32,372 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:35,069 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:36,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:44:36,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:44:36,327 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:44:36,373 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:40,357 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:40,374 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:42,374 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:45,831 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:46,375 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:48,376 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:50,398 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:44:51,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:44:51,327 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:44:51,328 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:44:51,536 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:52,377 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:54,377 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:44:56,747 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:44:58,378 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:00,379 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:01,847 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:04,380 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:06,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:45:06,324 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:45:06,328 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:45:06,380 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:07,549 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:10,381 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:12,382 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:12,780 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:16,383 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:18,383 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:18,723 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:20,399 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:45:21,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:45:21,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:45:21,327 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:45:24,589 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:29,589 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:34,590 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:36,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:45:36,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:45:36,365 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:45:40,543 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:41,697 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-08 10:45:41,698 DEBUG   SenderThread:1538942 [sender.py:send():380] send: history
+2023-11-08 10:45:41,698 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: summary_record
+2023-11-08 10:45:41,699 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:45:42,389 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:45:43,389 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:44,389 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:45,658 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:48,390 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:50,391 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:50,399 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:45:51,324 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:45:51,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:45:51,329 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:45:51,612 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:45:54,392 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:56,392 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:45:56,700 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:00,393 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:01,745 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:02,394 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:06,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:46:06,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:46:06,329 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:46:06,395 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:06,904 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:08,395 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:12,119 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:12,396 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:14,397 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:17,851 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:18,398 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:20,398 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:20,399 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:46:21,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:46:21,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:46:21,329 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:46:23,101 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:24,399 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:26,399 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:28,915 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:30,400 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:32,401 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:34,890 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:36,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:46:36,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:46:36,329 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:46:36,402 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:38,403 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:40,812 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:42,404 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:44,404 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:46:46,749 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:50,400 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:46:51,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:46:51,325 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:46:51,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:46:52,591 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:46:57,592 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:02,592 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:06,325 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:47:06,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:47:06,369 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:47:08,542 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:08,929 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-08 10:47:08,945 DEBUG   SenderThread:1538942 [sender.py:send():380] send: history
+2023-11-08 10:47:08,945 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: summary_record
+2023-11-08 10:47:08,945 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:47:09,410 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:47:10,410 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:11,411 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:13,965 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:14,411 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:18,413 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:19,062 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:20,400 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:47:20,413 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:21,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:47:21,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:47:21,329 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:47:24,414 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:24,982 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:26,414 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:30,415 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:30,835 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:32,416 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:35,921 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:36,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:47:36,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:47:36,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:47:36,417 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:38,418 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:41,799 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:42,418 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:44,419 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:47,637 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:48,420 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:50,401 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:47:50,421 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:51,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:47:51,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:47:51,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:47:53,617 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:47:54,422 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:56,422 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:47:59,561 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:00,423 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:02,424 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:04,424 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:05,391 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:06,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:48:06,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:48:06,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:48:08,425 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:10,426 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:10,961 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:15,962 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:20,401 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:48:21,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:48:21,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:48:21,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:48:21,528 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:26,528 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:31,529 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:34,741 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: partial_history
+2023-11-08 10:48:34,742 DEBUG   SenderThread:1538942 [sender.py:send():380] send: history
+2023-11-08 10:48:34,742 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: summary_record
+2023-11-08 10:48:34,742 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:48:35,433 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:48:36,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:48:36,327 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:48:36,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:48:36,433 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:36,575 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:37,433 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:40,434 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:42,090 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:44,435 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:46,435 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:47,118 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:50,401 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:48:50,436 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:51,326 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:48:51,326 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:48:51,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:48:52,613 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:48:54,437 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:56,438 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:48:58,537 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:49:00,439 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:02,439 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:03,597 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:49:06,327 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: stop_status
+2023-11-08 10:49:06,327 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: stop_status
+2023-11-08 10:49:06,330 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:49:06,440 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:06,549 DEBUG   SenderThread:1538942 [sender.py:send():380] send: exit
+2023-11-08 10:49:06,549 INFO    SenderThread:1538942 [sender.py:send_exit():585] handling exit code: 1
+2023-11-08 10:49:06,549 INFO    SenderThread:1538942 [sender.py:send_exit():587] handling runtime: 406
+2023-11-08 10:49:06,549 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:49:06,549 INFO    SenderThread:1538942 [sender.py:send_exit():593] send defer
+2023-11-08 10:49:06,549 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,549 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 0
+2023-11-08 10:49:06,550 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,550 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 0
+2023-11-08 10:49:06,550 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 1
+2023-11-08 10:49:06,550 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,550 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 1
+2023-11-08 10:49:06,550 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,550 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 1
+2023-11-08 10:49:06,550 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 2
+2023-11-08 10:49:06,550 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,550 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 2
+2023-11-08 10:49:06,550 INFO    HandlerThread:1538942 [system_monitor.py:finish():203] Stopping system monitor
+2023-11-08 10:49:06,550 DEBUG   SystemMonitor:1538942 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2023-11-08 10:49:06,550 INFO    HandlerThread:1538942 [interfaces.py:finish():202] Joined cpu monitor
+2023-11-08 10:49:06,550 DEBUG   SystemMonitor:1538942 [system_monitor.py:_start():183] Publishing last batch of metrics
+2023-11-08 10:49:06,551 INFO    HandlerThread:1538942 [interfaces.py:finish():202] Joined disk monitor
+2023-11-08 10:49:06,575 INFO    HandlerThread:1538942 [interfaces.py:finish():202] Joined gpu monitor
+2023-11-08 10:49:06,575 INFO    HandlerThread:1538942 [interfaces.py:finish():202] Joined memory monitor
+2023-11-08 10:49:06,575 INFO    HandlerThread:1538942 [interfaces.py:finish():202] Joined network monitor
+2023-11-08 10:49:06,576 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,576 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 2
+2023-11-08 10:49:06,576 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 3
+2023-11-08 10:49:06,576 DEBUG   SenderThread:1538942 [sender.py:send():380] send: stats
+2023-11-08 10:49:06,576 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,576 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 3
+2023-11-08 10:49:06,576 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,576 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 3
+2023-11-08 10:49:06,576 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 4
+2023-11-08 10:49:06,577 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,577 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 4
+2023-11-08 10:49:06,577 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,577 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 4
+2023-11-08 10:49:06,577 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 5
+2023-11-08 10:49:06,577 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,577 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 5
+2023-11-08 10:49:06,577 DEBUG   SenderThread:1538942 [sender.py:send():380] send: summary
+2023-11-08 10:49:06,577 INFO    SenderThread:1538942 [sender.py:_save_file():1380] saving file wandb-summary.json with policy end
+2023-11-08 10:49:06,578 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,578 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 5
+2023-11-08 10:49:06,578 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 6
+2023-11-08 10:49:06,578 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,578 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 6
+2023-11-08 10:49:06,578 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,578 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 6
+2023-11-08 10:49:06,578 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 7
+2023-11-08 10:49:06,578 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:49:06,578 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:06,578 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 7
+2023-11-08 10:49:06,578 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:06,578 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 7
+2023-11-08 10:49:07,441 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:49:07,530 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-08 10:49:08,441 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:08,672 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 8
+2023-11-08 10:49:08,672 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: poll_exit
+2023-11-08 10:49:08,673 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:08,673 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 8
+2023-11-08 10:49:08,673 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:08,673 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 8
+2023-11-08 10:49:08,673 INFO    SenderThread:1538942 [job_builder.py:build():298] Attempting to build job artifact
+2023-11-08 10:49:08,673 INFO    SenderThread:1538942 [job_builder.py:_get_source_type():428] is repo sourced job
+2023-11-08 10:49:08,685 INFO    SenderThread:1538942 [job_builder.py:build():404] adding wandb-job metadata file
+2023-11-08 10:49:08,701 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 9
+2023-11-08 10:49:08,701 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:08,701 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 9
+2023-11-08 10:49:08,701 DEBUG   SenderThread:1538942 [sender.py:send():380] send: artifact
+2023-11-08 10:49:09,441 INFO    Thread-12 :1538942 [dir_watcher.py:_on_file_modified():288] file/dir modified: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:10,011 INFO    wandb-upload_0:1538942 [upload_job.py:push():86] Skipped uploading /home/jonghae/.local/share/wandb/artifacts/staging/tmpl3nwdl56
+2023-11-08 10:49:10,379 INFO    wandb-upload_1:1538942 [upload_job.py:push():89] Uploaded file /home/jonghae/.local/share/wandb/artifacts/staging/tmpmtmq4zey
+2023-11-08 10:49:11,718 INFO    SenderThread:1538942 [sender.py:send_artifact():1458] sent artifact job-https___github.com_pjhae_ai_crew_project.git_MADDPG_main_openai.py - {'id': 'QXJ0aWZhY3Q6NjMxMzI4MTYx', 'state': 'PENDING', 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjExMzU5MTkyMQ==', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NjMxMzEwNjY4', 'versionIndex': 0}}}
+2023-11-08 10:49:11,718 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:11,718 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 9
+2023-11-08 10:49:11,718 INFO    SenderThread:1538942 [dir_watcher.py:finish():358] shutting down directory watcher
+2023-11-08 10:49:12,442 INFO    SenderThread:1538942 [dir_watcher.py:finish():388] scan: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files
+2023-11-08 10:49:12,442 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/conda-environment.yaml conda-environment.yaml
+2023-11-08 10:49:12,442 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/config.yaml config.yaml
+2023-11-08 10:49:12,442 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/requirements.txt requirements.txt
+2023-11-08 10:49:12,445 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-metadata.json wandb-metadata.json
+2023-11-08 10:49:12,445 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log output.log
+2023-11-08 10:49:12,445 INFO    SenderThread:1538942 [dir_watcher.py:finish():402] scan save: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json wandb-summary.json
+2023-11-08 10:49:12,447 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 10
+2023-11-08 10:49:12,447 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:12,448 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 10
+2023-11-08 10:49:12,449 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:12,449 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 10
+2023-11-08 10:49:12,449 INFO    SenderThread:1538942 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-08 10:49:12,532 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: keepalive
+2023-11-08 10:49:12,875 INFO    wandb-upload_1:1538942 [upload_job.py:push():131] Uploaded file /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/config.yaml
+2023-11-08 10:49:12,956 INFO    wandb-upload_0:1538942 [upload_job.py:push():131] Uploaded file /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/conda-environment.yaml
+2023-11-08 10:49:13,029 INFO    wandb-upload_2:1538942 [upload_job.py:push():131] Uploaded file /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/requirements.txt
+2023-11-08 10:49:13,032 INFO    wandb-upload_3:1538942 [upload_job.py:push():131] Uploaded file /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/output.log
+2023-11-08 10:49:13,034 INFO    wandb-upload_4:1538942 [upload_job.py:push():131] Uploaded file /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/files/wandb-summary.json
+2023-11-08 10:49:13,235 INFO    Thread-11 :1538942 [sender.py:transition_state():613] send defer: 11
+2023-11-08 10:49:13,235 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:13,235 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 11
+2023-11-08 10:49:13,235 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:13,235 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 11
+2023-11-08 10:49:13,235 INFO    SenderThread:1538942 [file_pusher.py:join():181] waiting for file pusher
+2023-11-08 10:49:13,235 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 12
+2023-11-08 10:49:13,236 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:13,236 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 12
+2023-11-08 10:49:13,236 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:13,236 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 12
+2023-11-08 10:49:13,236 INFO    SenderThread:1538942 [file_stream.py:finish():595] file stream finish called
+2023-11-08 10:49:13,946 INFO    SenderThread:1538942 [file_stream.py:finish():599] file stream finish is done
+2023-11-08 10:49:13,946 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 13
+2023-11-08 10:49:13,946 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:13,946 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 13
+2023-11-08 10:49:13,946 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: status_report
+2023-11-08 10:49:13,947 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:13,947 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 13
+2023-11-08 10:49:13,947 INFO    SenderThread:1538942 [sender.py:transition_state():613] send defer: 14
+2023-11-08 10:49:13,947 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: defer
+2023-11-08 10:49:13,947 INFO    HandlerThread:1538942 [handler.py:handle_request_defer():172] handle defer: 14
+2023-11-08 10:49:13,947 DEBUG   SenderThread:1538942 [sender.py:send():380] send: final
+2023-11-08 10:49:13,947 DEBUG   SenderThread:1538942 [sender.py:send():380] send: footer
+2023-11-08 10:49:13,947 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: defer
+2023-11-08 10:49:13,947 INFO    SenderThread:1538942 [sender.py:send_request_defer():609] handle sender defer: 14
+2023-11-08 10:49:13,948 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: poll_exit
+2023-11-08 10:49:13,948 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: server_info
+2023-11-08 10:49:13,948 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: get_summary
+2023-11-08 10:49:13,948 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: sampled_history
+2023-11-08 10:49:13,948 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: internal_messages
+2023-11-08 10:49:13,949 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: poll_exit
+2023-11-08 10:49:13,949 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: server_info
+2023-11-08 10:49:13,950 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: job_info
+2023-11-08 10:49:14,123 DEBUG   SenderThread:1538942 [sender.py:send_request():407] send_request: job_info
+2023-11-08 10:49:14,123 INFO    MainThread:1538942 [wandb_run.py:_footer_history_summary_info():3760] rendering history
+2023-11-08 10:49:14,123 INFO    MainThread:1538942 [wandb_run.py:_footer_history_summary_info():3792] rendering summary
+2023-11-08 10:49:14,123 INFO    MainThread:1538942 [wandb_run.py:_footer_sync_info():3719] logging synced files
+2023-11-08 10:49:14,123 DEBUG   HandlerThread:1538942 [handler.py:handle_request():146] handle_request: shutdown
+2023-11-08 10:49:14,123 INFO    HandlerThread:1538942 [handler.py:finish():866] shutting down handler
+2023-11-08 10:49:14,950 INFO    WriterThread:1538942 [datastore.py:close():294] close: /home/jonghae/ai_crew_project/MADDPG/wandb/run-20231108_104219-do04w9l4/run-do04w9l4.wandb
+2023-11-08 10:49:15,123 INFO    SenderThread:1538942 [sender.py:finish():1536] shutting down sender
+2023-11-08 10:49:15,123 INFO    SenderThread:1538942 [file_pusher.py:finish():175] shutting down file pusher
+2023-11-08 10:49:15,123 INFO    SenderThread:1538942 [file_pusher.py:join():181] waiting for file pusher

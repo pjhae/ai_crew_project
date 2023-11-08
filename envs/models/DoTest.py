@@ -8,8 +8,9 @@ import datetime
 env_config = {
     "num_agents": 4,
     "obs_box_size": 50,
-    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.))
-    }
+    "init_pos": ((60., 110.), (200., 140.), (60., 240.), (210., 220.)),
+    "dynamic_delta_t": 0.01
+}
 
 if __name__ == '__main__':
     env = env_level0(env_config)
@@ -36,7 +37,7 @@ if __name__ == '__main__':
         reset_arg['episode'] = i
         obs = env.reset(**reset_arg)
 
-        while not done and steps < 10000:
+        while not done and steps < 1000:
             steps += 1
             # print(steps)
 
@@ -56,7 +57,7 @@ if __name__ == '__main__':
             # print('reward:',agent_rew)
             # print('done:', agent_done)
 
-            print(agent_info['objects_pos'])
+            print("1 : ", agent_info['objects_pos'])
    
             # print(agent_rew, agent_done, agent_info)
             agents = agent_info['agents']
