@@ -6,3 +6,5 @@
 *.pt
 *.gif
 video/
+wandb/
+MADDPG/wandb

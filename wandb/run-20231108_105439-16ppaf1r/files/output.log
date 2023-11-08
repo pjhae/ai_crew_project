@@ -153,3 +153,85 @@ steps:110000 episode:110
 steps:111000 episode:111
 steps:112000 episode:112
 steps:113000 episode:113
+steps:114000 episode:114
+steps:115000 episode:115
+steps:116000 episode:116
+steps:117000 episode:117
+steps:118000 episode:118
+steps:119000 episode:119
+steps:120000 episode:120
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+evaluation is finished at 120 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+steps:121000 episode:121
+steps:122000 episode:122
+steps:123000 episode:123
+steps:124000 episode:124
+steps:125000 episode:125
+steps:126000 episode:126
+steps:127000 episode:127
+steps:128000 episode:128
+steps:129000 episode:129
+steps:130000 episode:130
+=time:2311_081104 step:130000        save
+steps:131000 episode:131
+steps:132000 episode:132
+steps:133000 episode:133
+steps:134000 episode:134
+steps:135000 episode:135
+steps:136000 episode:136
+steps:137000 episode:137
+steps:138000 episode:138
+steps:139000 episode:139
+steps:140000 episode:140
+evaluation is finished at 140 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+steps:141000 episode:141
+steps:142000 episode:142
+steps:143000 episode:143
+steps:144000 episode:144
+steps:145000 episode:145
+steps:146000 episode:146
+steps:147000 episode:147
+steps:148000 episode:148
+steps:149000 episode:149
+steps:150000 episode:150
+steps:151000 episode:151
+steps:152000 episode:152
+steps:153000 episode:153
+steps:154000 episode:154
+steps:155000 episode:155
+steps:156000 episode:156
+steps:157000 episode:157
+steps:158000 episode:158
+steps:159000 episode:159
+steps:160000 episode:160
+evaluation is finished at 160 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+steps:161000 episode:161
+steps:162000 episode:162
+steps:163000 episode:163
+steps:164000 episode:164
+steps:165000 episode:165
+steps:166000 episode:166
+steps:167000 episode:167
+steps:168000 episode:168
+steps:169000 episode:169
+steps:170000 episode:170
+=time:2311_081107 step:170000        save
+steps:171000 episode:171
+steps:172000 episode:172
+steps:173000 episode:173
+steps:174000 episode:174
+steps:175000 episode:175
+steps:176000 episode:176
+steps:177000 episode:177
+steps:178000 episode:178
+steps:179000 episode:179
+steps:180000 episode:180
+IMAGEIO FFMPEG_WRITER WARNING: input image is not divisible by macro_block_size=16, resizing from (600, 300) to (608, 304) to ensure video compatibility with most codecs and players. To prevent resizing, make your input image divisible by the macro_block_size or set the macro_block_size to 1 (risking incompatibility).
+evaluation is finished at 180 th episode
+episode reward:-108.199 agents mean reward:[-49.65, -22.36, -21.19, -15.0]
+steps:181000 episode:181
