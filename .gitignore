@@ -1,0 +1,10 @@
+.gitee/
+.vscode/
+.idea/
+.__pycache__/
+*.pyc
+*.pt
+*.gif
+video/
+wandb/
+MADDPG/wandb
