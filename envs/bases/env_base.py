@@ -242,8 +242,8 @@ class tmps_env_base(gym.Env):
                 _rgb_value = self.geo_grid_data.get_grid_RGB_property(_x, _y)
                 # print(_rgb_value)
                 if _rgb_value[1] > 10 or _rgb_value[0] > 10:  # G has value
-                    agent.active = False  
-
+                    # agent.active = False  
+                    agent.active = True #pjhae
                 # agent의 이동한 position으로 global_state 갱신
                 self.put_agent_to_global(agent)
                 objects_position[i] = (_pos[0], _pos[1])
