@@ -21,18 +21,18 @@ from envs.level0.tmps_env import env_level0
 
 import wandb
 
-# For logging
-wandb.init(
-    # set the wandb project where this run will be logged
-    project="ai-crew",
-    # track hyperparameters and run metadata
-    config={
-    "obs_format": "relative_pos",
-    "architecture": "MLP",
-    "dataset": "accelerated_env",
-    "epochs": "None",
-    }
-)
+# # For logging
+# wandb.init(
+#     # set the wandb project where this run will be logged
+#     project="ai-crew",
+#     # track hyperparameters and run metadata
+#     config={
+#     "obs_format": "relative_pos",
+#     "architecture": "MLP",
+#     "dataset": "accelerated_env",
+#     "epochs": "None",
+#     }
+# )
 
 def make_env(scenario_name, arglist, benchmark=False):
     pass
@@ -250,14 +250,16 @@ def train(arglist, video):
             new_obs_n = goal_pos - agent_pos
 
             rew_n = -np.linalg.norm(new_obs_n, axis=1)
-            rew_n[-rew_n < 2] = 10
+            # rew_n[-rew_n < 2] = 10
 
-            if np.all(rew_n == 10):
+            done_n = np.array([False for _ in range(len(rew_n))])
+            done_n[-rew_n < 2] = True
+
+            if np.all(done_n) == True:
                 print("goal in")
 
-            done_n = [done_n for _ in range(4)]
-            if (episode_cnt >= arglist.per_episode_max_len-1):
-                done_n = [True for _ in range(4)]
+            if (episode_cnt >= arglist.per_episode_max_len-1 or np.all(done_n) == True):
+                done_n = [True for _ in range(len(rew_n))]
 
             # save the experience
             memory.add(obs_n, np.concatenate(action_n), rew_n , new_obs_n, done_n)
@@ -272,10 +274,8 @@ def train(arglist, video):
             # update the obs_n
             game_step += 1
             obs_n = new_obs_n
-            # done = all(done_n)
-            done = done_n
             terminal = (episode_cnt >= arglist.per_episode_max_len-1)
-            if done or terminal:
+            if np.all(done_n) or terminal:
                 episode_step = 0
                 obs_n =  env.reset(**reset_arg)
                 obs_n = np.array([[0,0] for _ in range(4)])  # pjhae
@@ -314,11 +314,19 @@ def train(arglist, video):
 
                     rew_n = -np.linalg.norm(new_obs_n, axis=1)
 
+                    done_n = np.array([False for _ in range(len(rew_n))])
+                    done_n[-rew_n < 2] = True
+
+                    if np.all(done_n) == True:
+                        print("goal in")
+
+                    if (episode_cnt >= arglist.per_episode_max_len-1 or np.all(done_n) == True):
+                        done_n = [True for _ in range(len(rew_n))]
                         
                     obs_n = new_obs_n
-                    done = done_n
+
                     terminal = (episode_cnt >= arglist.per_episode_max_len-1)
-                    if done or terminal:
+                    if np.all(done_n) == True or terminal:
                         break
 
             
@@ -328,11 +336,10 @@ def train(arglist, video):
             mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
             print('episode reward:{} agents mean reward:{}'.format(mean_ep_r, mean_agents_r))
 
-            wandb.log({"mean_agents_r": np.sum(mean_agents_r)})
+            # wandb.log({"mean_agents_r": np.sum(mean_agents_r)})
 
             video.save('test_{}.mp4'.format(episode_gone))
             video.init(enabled=False)             
-
 
 if __name__ == '__main__':
     arglist = parse_args()
