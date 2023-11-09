@@ -226,14 +226,15 @@ def train(arglist, video):
             new_obs_n = goal_pos - agent_pos
 
             rew_n = -np.linalg.norm(new_obs_n, axis=1) # 크기가 4인 벡터로 아웃폿 [-1, -2, -3, -1]
-            # done_n[-rew_n < 2] = 0
 
-            if np.all(rew_n == 0):
+            done_n = np.array([False for _ in range(len(rew_n))])
+            done_n[-rew_n < 2] = True
+            
+            if np.all(done_n) == True:
                 print("goal in")
-
-            done_n = [done_n for _ in range(4)]
-            if (episode_cnt >= arglist.per_episode_max_len-1):
-                done_n = [True for _ in range(4)]
+            
+            if (episode_cnt >= arglist.per_episode_max_len-1 or np.all(done_n) == True):
+                done_n = [True for _ in range(len(rew_n))]
 
             # save the experience
             memory.add(obs_n, np.concatenate(action_n), rew_n , new_obs_n, done_n)
@@ -248,10 +249,8 @@ def train(arglist, video):
             # update the obs_n
             game_step += 1
             obs_n = new_obs_n
-            # done = all(done_n)
-            done = done_n
             terminal = (episode_cnt >= arglist.per_episode_max_len-1)
-            if done or terminal:
+            if np.all(done_n) or terminal:
                 obs_n =  env.reset(**reset_arg)
                 obs_n = np.array([[0,0] for _ in range(4)])  # pjhae
                 agent_info.append([[]])
@@ -293,9 +292,9 @@ def train(arglist, video):
 
                         
                     obs_n = new_obs_n
-                    done = done_n
+                    
                     terminal = (episode_cnt >= arglist.per_episode_max_len-1)
-                    if done or terminal:
+                    if np.all(done_n) or terminal:
                         break
 
             print("evaluation is finished at", episode_gone, "th episode" )
