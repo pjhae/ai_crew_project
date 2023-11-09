@@ -8,3 +8,6 @@
 video/
 wandb/
 MADDPG/wandb
+envs/__pycache__/
+envs/bases/__pycache__/
+envs/level0/__pycache__/
