@@ -326,7 +326,7 @@ def train(arglist, video):
                     obs_n = new_obs_n
 
                     terminal = (episode_cnt >= arglist.per_episode_max_len-1)
-                    if np.all(done_n) == True or terminal:
+                    if np.all(done_n) or terminal:
                         break
 
             
