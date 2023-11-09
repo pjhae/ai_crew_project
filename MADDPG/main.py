@@ -6,15 +6,13 @@ import os
 import datetime
 import time
 import torch
-import pickle
-import argparse
 import numpy as np
 import torch.nn as nn
 import torch.optim as optim
 
 from arguments import parse_args
 from replay_buffer import ReplayBuffer
-from model import openai_actor, openai_critic
+from model import acot_NN, critic_NN
 from utils import VideoRecorder
 
 from envs.level0.tmps_env import env_level0
@@ -34,9 +32,6 @@ wandb.init(
     }
 )
 
-def make_env(scenario_name, arglist, benchmark=False):
-    pass
-
 def get_trainers(env, num_adversaries, obs_shape_n, action_shape_n, arglist):
     """
     init the trainers or load the old model
@@ -47,7 +42,7 @@ def get_trainers(env, num_adversaries, obs_shape_n, action_shape_n, arglist):
     critics_tar = [None for _ in range(env.n)]
     optimizers_c = [None for _ in range(env.n)]
     optimizers_a = [None for _ in range(env.n)]
-    input_size_global = sum(obs_shape_n) + sum(action_shape_n)
+    # input_size_global = sum(obs_shape_n) + sum(action_shape_n)
 
     # if arglist.restore == True: # For continual learning
     #     for idx in arglist.restore_idxs:
@@ -56,10 +51,10 @@ def get_trainers(env, num_adversaries, obs_shape_n, action_shape_n, arglist):
 
     # Note: if you need load old model, there should be a procedure for juding if the trainers[idx] is None
     for i in range(env.n):
-        actors_cur[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
-        critics_cur[i] = openai_critic(sum(obs_shape_n), sum(action_shape_n), arglist).to(arglist.device)
-        actors_tar[i] = openai_actor(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
-        critics_tar[i] = openai_critic(sum(obs_shape_n), sum(action_shape_n), arglist).to(arglist.device)
+        actors_cur[i] = acot_NN(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
+        critics_cur[i] = critic_NN(sum(obs_shape_n), sum(action_shape_n), arglist).to(arglist.device)
+        actors_tar[i] = acot_NN(obs_shape_n[i], action_shape_n[i], arglist).to(arglist.device)
+        critics_tar[i] = critic_NN(sum(obs_shape_n), sum(action_shape_n), arglist).to(arglist.device)
         optimizers_a[i] = optim.Adam(actors_cur[i].parameters(), arglist.lr_a)
         optimizers_c[i] = optim.Adam(critics_cur[i].parameters(), arglist.lr_c)
     actors_tar = update_trainers(actors_cur, actors_tar, 1.0) # update the target par using the cur
@@ -99,7 +94,7 @@ def agents_train(arglist, game_step, update_cnt, memory, obs_size, action_size, 
         update_cnt += 1
 
         # update every agent in different memory batch
-        for agent_idx, (actor_c, actor_t, critic_c, critic_t, opt_a, opt_c) in \
+        for agent_idx, (actor_c, _, critic_c, critic_t, opt_a, opt_c) in \
             enumerate(zip(actors_cur, actors_tar, critics_cur, critics_tar, optimizers_a, optimizers_c)):
             if opt_c == None: continue # jump to the next model update
 
@@ -134,7 +129,7 @@ def agents_train(arglist, game_step, update_cnt, memory, obs_size, action_size, 
             loss_a = torch.mul(-1, torch.mean(critic_c(obs_n_o, action_cur_o)))
 
             opt_a.zero_grad()
-            (1e-2*loss_pse+loss_a).backward()  # 작을수록 좋다
+            (1e-1*loss_pse+loss_a).backward()  # 작을수록 좋다
             nn.utils.clip_grad_norm_(actor_c.parameters(), arglist.max_grad_norm)
             opt_a.step()
 
@@ -174,6 +169,10 @@ def train(arglist, video):
 
     env = env_level0(env_config)
 
+    # Action space
+    action_space = env.agents[0].action_space
+    action_bound = [np.array([action_space[0].low, action_space[1].low]), np.array([action_space[0].high, action_space[1].high])]
+    
     print('=============================')
     print('=1 Env {} is right ...'.format(arglist.scenario_name))
     print('=============================')
@@ -196,8 +195,6 @@ def train(arglist, video):
     game_step = 0
     episode_cnt = 0
     update_cnt = 0
-    t_start = time.time()
-    rew_n_old = [0.0 for _ in range(env.n)] # set the init reward
     agent_info = [[[]]] # placeholder for benchmarking info
     episode_rewards = [0.0] # sum of rewards for all agents
     agent_rewards = [[0.0] for _ in range(env.n)] # individual agent reward
@@ -222,21 +219,23 @@ def train(arglist, video):
         'episode': 0
     }
     obs_n = env.reset(**reset_arg)
+    # 4 agents reset
     obs_n = np.array([[0, 0] for _ in range(4)])  # pjhae
+    
     for episode_gone in range(arglist.max_episode):
         # cal the reward print the debug data
 
-        print('steps:{} episode:{}'.format(game_step, episode_gone))
+        print('steps gone:{} episode gone:{}'.format(game_step, episode_gone))
 
         for episode_cnt in range(arglist.per_episode_max_len):
             # get action
-            action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() \
+            action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() * (action_bound[1] - action_bound[0])/2.0 + (action_bound[1] + action_bound[0])/2.0 \
                 for agent, obs in zip(actors_cur, obs_n)]
             
             # pjhae
             _action_n = [] 
-            for i, action in enumerate(action_n):
-                _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
+            for _, action in enumerate(action_n):
+                _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))   # Can check at "agent_base.py > self.action_space"
             _action_n = tuple(_action_n)
 
             # interact with env
@@ -249,10 +248,10 @@ def train(arglist, video):
 
             new_obs_n = goal_pos - agent_pos
 
-            rew_n = -np.linalg.norm(new_obs_n, axis=1)
-            rew_n[-rew_n < 2] = 10
+            rew_n = -np.linalg.norm(new_obs_n, axis=1) # 크기가 4인 벡터로 아웃폿 [-1, -2, -3, -1]
+            # done_n[-rew_n < 2] = 0
 
-            if np.all(rew_n == 10):
+            if np.all(rew_n == 0):
                 print("goal in")
 
             done_n = [done_n for _ in range(4)]
@@ -289,21 +288,23 @@ def train(arglist, video):
         # evalution
         if episode_gone % 20 == 0 :
             video.init(enabled=True)
-
             for _ in range(5):
                 obs_n =  env.reset(**reset_arg)
                 obs_n = np.array([[0,0] for _ in range(4)])  # pjhae
                 
+                #TODO I think action_target output should be used, and model_original_out=True
+                action_n_test = []
                 for episode_cnt in range(arglist.per_episode_max_len):
-                    action_n = [agent(torch.from_numpy(obs).to(arglist.device, torch.float)).detach().cpu().numpy() \
-                        for agent, obs in zip(actors_cur, obs_n)]
+                    for actor, obs in zip(actors_tar, obs_n):
+                        model_out, _ = actor(torch.from_numpy(obs).to(arglist.device, torch.float), model_original_out=True) * (action_bound[1] - action_bound[0])/2.0 + (action_bound[1] + action_bound[0])/2.0
+                        action_n_test.append(model_out.detach().cpu().numpy())
                     # pjhae
-                    _action_n = [] 
-                    for i, action in enumerate(action_n):
-                        _action_n.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
-                    _action_n = tuple(_action_n)
+                    _action_n_test = [] 
+                    for i, action in enumerate(action_n_test):
+                        _action_n_test.append((np.array([action[0]]), np.array([action[1]]), 7, 0, 0))
+                    _action_n_test = tuple(_action_n_test)
 
-                    new_obs_n, rew_n, done_n, info_n = env.step(_action_n)
+                    new_obs_n, rew_n, done_n, info_n = env.step(_action_n_test)
 
                     video.record(env.render(mode='rgb_array'))
 
@@ -321,8 +322,6 @@ def train(arglist, video):
                     if done or terminal:
                         break
 
-            
-
             print("evaluation is finished at", episode_gone, "th episode" )
             mean_agents_r = [round(np.mean(agent_rewards[idx][-200:-1]), 2) for idx in range(env.n)]
             mean_ep_r = round(np.mean(episode_rewards[-200:-1]), 3)
@@ -338,7 +337,7 @@ if __name__ == '__main__':
     arglist = parse_args()
 
         # For video
-    video_directory = '/home/jonghae/ai_crew_project/MADDPG/video/{}'.format(datetime.datetime.now().strftime("%H:%M:%S %p"))
+    video_directory = './video/{}'.format(datetime.datetime.now().strftime("%H:%M:%S %p"))
     video = VideoRecorder(dir_name = video_directory)
 
     train(arglist, video)
