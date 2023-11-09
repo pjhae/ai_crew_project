@@ -1,11 +1,5 @@
-# Time: 2019-11-05
-# Author: Zachary 
-# Name: MADDPG_torch
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
-import gym
-
 
 class abstract_agent(nn.Module):
     def __init__(self):
@@ -45,18 +39,10 @@ class acot_NN(abstract_agent):
         self.linear_a2 = nn.Linear(args.num_units_openai, args.num_units_openai)
         self.linear_a = nn.Linear(args.num_units_openai, action_size)
 
-        # Action space
-        self.action_space = [gym.spaces.Box(low=-5.0, high=10.0, shape=(1,), dtype=float),
-                             gym.spaces.Box(low=-15.0, high=15.0, shape=(1,), dtype=float)]
-        self.amplitude = torch.tensor([(self.action_space[0].high - self.action_space[0].low) / 2.0, (self.action_space[1].high - self.action_space[1].low) / 2.0], device=args.device ,dtype=torch.float32)
-        self.mean = torch.tensor([(self.action_space[0].high + self.action_space[0].low) / 2.0, (self.action_space[1].high + self.action_space[1].low) / 2.0], device=args.device, dtype=torch.float32)
-
         self.reset_parameters()
         self.train()
     
     def reset_parameters(self):
-        # gain = nn.init.calculate_gain('leaky_relu')
-        # gain_tanh = nn.init.calculate_gain('tanh')
         nn.init.xavier_uniform_(self.linear_a1.weight, gain=nn.init.calculate_gain('leaky_relu'))
         nn.init.xavier_uniform_(self.linear_a2.weight, gain=nn.init.calculate_gain('leaky_relu'))
         nn.init.xavier_uniform_(self.linear_a.weight, gain=nn.init.calculate_gain('leaky_relu'))

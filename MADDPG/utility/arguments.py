@@ -1,7 +1,3 @@
-# Time: 2019-11-05
-# Author: Zachary 
-# Name: MADDPG_torch
-
 import time
 import torch
 import argparse
@@ -15,7 +11,7 @@ def parse_args():
     # environment
     parser.add_argument("--scenario_name", type=str, default="simple_adversary", help="name of the scenario script")
     parser.add_argument("--start_time", type=str, default=time_now, help="the time when start the game")
-    parser.add_argument("--per_episode_max_len", type=int, default=3000, help="maximum episode length")
+    parser.add_argument("--per_episode_max_len", type=int, default=1500, help="maximum episode length")
     parser.add_argument("--max_episode", type=int, default=150000, help="maximum episode length")
     parser.add_argument("--num-adversaries", type=int, default=1, help="number of adversaries")
 
